@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import './App.css';
 import Person from "./Person/Person.js"
 
@@ -36,11 +37,15 @@ class App extends Component {
 
   render() {
     const style = {
-      backgroundColor: "white",
+      backgroundColor: "green",
       font: "inherit",
       border: "1px solid blue",
       padding: "4px",
-      cursor: "pointer"
+      cursor: "pointer",
+      ":hover": {
+        backgroundColor: "lightgreen",
+        color: "black"
+      }
     }
 
     let persons = null;
@@ -57,12 +62,26 @@ class App extends Component {
                     changed={(event) => this.nameChangedHandler(event, person.id)}/>
           })}      
         </div>)
+        style.backgroundColor = "red"
+        style[":hover"] = {
+          backgroundColor: "salmon",
+          color: "black"
+        }
     }
 
+    const classes = []
+
+    if(this.state.persons.length <= 2) {
+      classes.push("red");      
+    }
+    if(this.state.persons <= 1) {
+      classes.push("bold");      
+    }
     return (
       <div className="App">
         <h1>Welcome to React</h1>
         <p>I am React App</p>
+        <p className={classes.join(" ")}>This is really working</p>
         <button onClick={this.togglePersonsHandler}
                 style={style}>Switch name</button>
         {persons}   
