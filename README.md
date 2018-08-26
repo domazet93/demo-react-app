@@ -1,4 +1,4 @@
-## React & Redux App
+## React Demo App
 
 Install dependencies:
 
@@ -11,7 +11,3 @@ Run dev server:
 Run tests:
 
     npm test
-
-Run build for production:
-
-    npm build
